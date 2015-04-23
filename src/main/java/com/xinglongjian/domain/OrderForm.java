@@ -1,9 +1,14 @@
 package com.xinglongjian.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class OrderForm {
+public class OrderForm implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int count=0;
 	private Date orderDate;
 	private long selectCategory;

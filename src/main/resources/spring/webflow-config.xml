@@ -11,4 +11,16 @@
     <webflow:flow-registry id="flowRegistry" base-path="classpath:/templates">
         <webflow:flow-location-pattern value="/**/*-flow.xml"/>
     </webflow:flow-registry>
+    
+    <webflow:flow-builder-services id="flowBuilderServices" view-factory-creator="mvcViewFactoryCreator"/>
+    
+    <bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+        <property name="flowViewResolver" ref="flowResourceFlowViewResolver"/>
+    </bean>
+    
+    <bean id="flowResourceFlowViewResolver" class="org.springframework.webflow.mvc.builder.FlowResourceFlowViewResolver">
+        <property name="defaultViewSuffix" value=".jspx"/>
+    </bean>
+    
+    <bean id="flowRegistryClassPathPostProcessor" class="com.xinglongjian.config.FlowRegistryClassPathPostProcessor" />
 </beans>

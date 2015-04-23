@@ -28,6 +28,8 @@ public class WebflowContextConfiguration {
     public FlowHandlerMapping flowHandlerMapping() { 
         FlowHandlerMapping flowHandlerMapping = new FlowHandlerMapping(); 
         flowHandlerMapping.setFlowRegistry(flowRegistry); 
+        flowHandlerMapping.setOrder(0);
+        System.out.println(".........................");
         return flowHandlerMapping; 
     }
 }
