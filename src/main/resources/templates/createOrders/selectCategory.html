@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="${flowExecutionUrl}">
+  <table>
+    <tr>
+      <td>
+        <select id="selectCategory" name="selectCategory">
+           <#list selectableCategories?keys as key>
+             <option value="${key}">${selectableCategories.get(key)}</option>
+           </#list>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="submit" id="cancel" name="_eventId_cancel" value="返回"/>
+        <input type="submit" id="next" name="_eventId_next" value="提交"/>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
