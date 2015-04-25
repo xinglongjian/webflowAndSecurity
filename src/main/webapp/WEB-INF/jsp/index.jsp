@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/createOrders">buy books</a>
+<spring:url value="/createOrders" var="createOrder"/>
+<a href="${createOrder }">buy books</a>
 </body>
 </html>

@@ -2,22 +2,26 @@ package com.xinglongjian.domain;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OrderForm implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int count=0;
+	private int quantity=0;
 	private Date orderDate;
-	private long selectCategory;
-	private List<String> selectBookes;
-	public int getCount() {
-		return count;
+	private Date deliveryDate;
+	private long categoryId;
+	private long bookId;
+	private Map<Book,Integer> selectBookes=new HashMap<Book, Integer>();
+	
+	public int getQuantity() {
+		return quantity;
 	}
-	public void setCount(int count) {
-		this.count = count;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	public Date getOrderDate() {
 		return orderDate;
@@ -25,18 +29,36 @@ public class OrderForm implements Serializable{
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
-	public List<String> getSelectBookes() {
+	
+	public long getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(long categoryId) {
+		this.categoryId = categoryId;
+	}
+	public Map<Book, Integer> getSelectBookes() {
+		
 		return selectBookes;
 	}
-	public void setSelectBookes(List<String> selectBookes) {
+	public void setSelectBookes(Map<Book, Integer> selectBookes) {
 		this.selectBookes = selectBookes;
 	}
-	public long getSelectCategory() {
-		return selectCategory;
+	public long getBookId() {
+		return bookId;
 	}
-	public void setSelectCategory(long selectCategory) {
-		this.selectCategory = selectCategory;
+	public void setBookId(long bookId) {
+		this.bookId = bookId;
+	}
+
+	public void resetSelectedBooks()
+	{
+		selectBookes.clear();
+	}
+	public Date getDeliveryDate() {
+		return deliveryDate;
+	}
+	public void setDeliveryDate(Date deliveryDate) {
+		this.deliveryDate = deliveryDate;
 	}
 	
-
 }
