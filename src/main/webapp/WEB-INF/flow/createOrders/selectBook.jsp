@@ -30,7 +30,7 @@
      <tr>
        <td>
           <input type="submit" id="add" name="_eventId_add" value="Add"/>
-        <input type="submit" id="reset" name="_eventId_reset" value="Reset"/>
+          <input type="submit" id="reset" name="_eventId_reset" value="Reset"/>
        </td>
      </tr>
    </table>

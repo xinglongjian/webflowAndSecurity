@@ -8,6 +8,7 @@
       <evaluate expression="orderController.initializeForm()" result="flowScope.orderForm"/>
       <evaluate expression="orderController.initializeSelectableCategories()" result="flowScope.selectableCategories"/>
     </on-start>
+    
 	<view-state id="selectCategory" view="selectCategory.jsp" model="orderForm">
 	  <transition on="next" to="selectBooks">
 	    <evaluate expression="orderController.initializeSelectableBooks(flowScope.orderForm)" result="flowScope.selectableBooks"/>
@@ -24,15 +25,15 @@
          <evaluate expression="orderForm.resetSelectedBooks()"></evaluate>
       </transition>
       <transition on="cancel" to="end"/>
-      <transition on="next" to="selectDeliveryOptions"/>
+      <transition on="next" to="selectDelivery"/>
     </view-state>
     
-    <view-state id="selectDeliveryOptions" view="selectDeliveryOptions.jsp" model="orderForm">
-       <transition on="privious" to="selectBooks"/>
-       <transition on="finish" to="end">
+	 <view-state id="selectDelivery" view="selectDelivery.jsp" model="orderForm">
+	  <transition on="previous" to="selectBooks"/>
+      <transition on="ok" to="end">
           <evaluate expression="orderController.placeOrder(flowScope.orderForm)"/>
        </transition>
-       <transition on="cancel" to="end"/>
+      <transition on="cancel" to="end"/> 
     </view-state>
     
     <end-state id="end" view="externalRedirect:serverRelative:/index"/>

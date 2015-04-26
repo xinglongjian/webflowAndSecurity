@@ -22,27 +22,24 @@
            <form:input path="orderDate" disabled="true"/>
         </td>
      </tr>
-       <tr>
+    <!-- -->  <tr>
         <td>
            DeliveryDate:
         </td>
         <td>
            <form:input path="deliveryDate"/>
-           <script type="text/javascript">
-             /**Spring.addDecoration(new Spring.ElementDecoration({
-            	 elementId:"deliveryDate",
-            	 widgetType:"dijit.form.DateTextBox",
-            	 widgetAttrs:{datePattern:"MM-dd-yyyy",required:true}}));*/
-           </script>
         </td>
+     </tr>
+     <tr>
+     <td></td>
+      <td>
+      <input type="submit" id="previous" name="_eventId_previous" value="Previous"/>
+      <input type="submit" id="cancel" name="_eventId_cancel" value="Cancel"/>
+      <input type="submit" id="finish" name="_eventId_ok" value="Finish"/>
+      </td>
      </tr>
    </table>
    <p/>
-   <div align="left" style="margin-bottom: 20px">
-     <button type="submit" id="privious" name="_eventId_previous">previous</button>
-     <button type="submit" id="cancel" name="_eventId_cancel">Cancel</button>
-     <button type="submit" id="finish" name="_eventId_finish">Finish</button>
-   </div>
 </form:form>
 </body>
 </html>

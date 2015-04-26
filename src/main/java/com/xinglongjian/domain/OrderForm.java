@@ -12,7 +12,7 @@ public class OrderForm implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int quantity=0;
 	private Date orderDate;
-	private Date deliveryDate;
+	private String deliveryDate;
 	private long categoryId;
 	private long bookId;
 	private Map<Book,Integer> selectBookes=new HashMap<Book, Integer>();
@@ -54,10 +54,10 @@ public class OrderForm implements Serializable{
 	{
 		selectBookes.clear();
 	}
-	public Date getDeliveryDate() {
+	public String getDeliveryDate() {
 		return deliveryDate;
 	}
-	public void setDeliveryDate(Date deliveryDate) {
+	public void setDeliveryDate(String deliveryDate) {
 		this.deliveryDate = deliveryDate;
 	}
 	
