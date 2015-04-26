@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd" >
+
+    <on-start>
+      <evaluate expression="orderTwoController.initializeForm()" result="flowScope.orderForm"/>
+    </on-start>
+    
+	<view-state id="selectCategory" view="selectCategory.jsp" model="orderForm">
+	  <on-render>
+	    <evaluate expression="orderTwoController.initializeSelectableCategories()" result="requestScope.selectableCategories"/>
+	  </on-render>
+	  <transition on="next" to="selectBooks">
+	    <evaluate expression="orderTwoController.initializeSelectableBooks(flowScope.orderForm)" result="flowScope.selectableBooks"/>
+	  </transition>
+	  <transition on="cancel" to="end"/>
+	</view-state>
+	
+    <view-state id="selectBooks" view="selectBook.jsp" model="orderForm">
+      <transition on="previous" to="selectCategory"/>
+      <transition on="add">
+         <evaluate expression="orderController.addBooks(flowScope.orderForm)"/>
+      </transition>
+      <transition on="reset" to="selectBooks">
+         <evaluate expression="orderForm.resetSelectedBooks()"></evaluate>
+      </transition>
+      <transition on="cancel" to="end"/>
+      <transition on="next" to="selectDelivery"/>
+    </view-state>
+    
+	 <view-state id="selectDelivery" view="selectDelivery.jsp" model="orderForm">
+	  <transition on="previous" to="selectBooks"/>
+      <transition on="ok" to="end">
+          <evaluate expression="orderController.placeOrder(flowScope.orderForm)"/>
+       </transition>
+      <transition on="cancel" to="end"/> 
+    </view-state>
+    
+    <end-state id="end" view="externalRedirect:serverRelative:/index"/>
+</flow>
+
+
+
+

@@ -11,6 +11,9 @@
 </head>
 <body>
 <spring:url value="/createOrders" var="createOrder"/>
+<spring:url value="/createOrdersTwo" var="createOrderTwo"/>
 <a href="${createOrder }">buy books</a>
+&nbsp;
+<a href="${createOrderTwo }">buy books-Two</a>
 </body>
 </html>
