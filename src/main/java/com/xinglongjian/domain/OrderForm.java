@@ -11,7 +11,7 @@ public class OrderForm implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private int quantity=0;
-	private Date orderDate;
+	private String orderDate;
 	private String deliveryDate;
 	private long categoryId;
 	private long bookId;
@@ -23,13 +23,14 @@ public class OrderForm implements Serializable{
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public Date getOrderDate() {
+	
+	
+	public String getOrderDate() {
 		return orderDate;
 	}
-	public void setOrderDate(Date orderDate) {
+	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
-	
 	public long getCategoryId() {
 		return categoryId;
 	}

@@ -16,7 +16,7 @@
            SelectableBooks:
         </td>
         <td>
-           <form:select path="bookId" items="${selectableBooks }"/>
+           <form:select path="bookId" items="${selectableBooks }" itemLabel="name" itemValue="id"/>
         </td>
      </tr>
        <tr>

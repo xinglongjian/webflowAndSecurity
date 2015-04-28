@@ -13,12 +13,14 @@
 	    <evaluate expression="orderTwoController.initializeSelectableCategories()" result="requestScope.selectableCategories"/>
 	  </on-render>
 	  <transition on="next" to="selectBooks">
-	    <evaluate expression="orderTwoController.initializeSelectableBooks(flowScope.orderForm)" result="flowScope.selectableBooks"/>
 	  </transition>
 	  <transition on="cancel" to="end"/>
 	</view-state>
 	
     <view-state id="selectBooks" view="selectBook.jsp" model="orderForm">
+      <on-render>
+         <evaluate expression="orderTwoController.initializeSelectableBooks(flowScope.orderForm)" result="flowScope.selectableBooks"/>
+      </on-render>
       <transition on="previous" to="selectCategory"/>
       <transition on="add">
          <evaluate expression="orderController.addBooks(flowScope.orderForm)"/>

@@ -1,23 +1,24 @@
 package com.xinglongjian.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 
-import com.xinglongjian.domain.Account;
 import com.xinglongjian.domain.Book;
 import com.xinglongjian.domain.OrderForm;
 
 @Controller
 public class OrderController {
 	
+	SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
 	public OrderForm initializeForm()
 	{
 		OrderForm of=new OrderForm();
 		of.setQuantity(1);
-		of.setOrderDate(new Date());
+		of.setOrderDate(format.format(new Date()));
 		
 		return of;
 	}

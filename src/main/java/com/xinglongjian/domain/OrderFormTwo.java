@@ -5,16 +5,20 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class OrderFormTwo implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private int quantity=0;
+	@DateTimeFormat(pattern="MM-dd-yyyy")
 	private Date orderDate;
-	private String deliveryDate;
+	@DateTimeFormat(pattern="MM-dd-yyyy")
+	private Date deliveryDate;
 	private Category category;
-	private long bookId;
+	private Book book;
 	private Map<Book,Integer> selectBookes=new HashMap<Book, Integer>();
 	
 	public int getQuantity() {
@@ -43,22 +47,23 @@ public class OrderFormTwo implements Serializable{
 	public void setSelectBookes(Map<Book, Integer> selectBookes) {
 		this.selectBookes = selectBookes;
 	}
-	public long getBookId() {
-		return bookId;
-	}
-	public void setBookId(long bookId) {
-		this.bookId = bookId;
-	}
 
+	public Book getBook() {
+		return book;
+	}
+	public void setBook(Book book) {
+		this.book = book;
+	}
 	public void resetSelectedBooks()
 	{
 		selectBookes.clear();
 	}
-	public String getDeliveryDate() {
+	public Date getDeliveryDate() {
 		return deliveryDate;
 	}
-	public void setDeliveryDate(String deliveryDate) {
+	public void setDeliveryDate(Date deliveryDate) {
 		this.deliveryDate = deliveryDate;
 	}
+	
 	
 }

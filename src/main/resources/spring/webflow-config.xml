@@ -15,8 +15,14 @@
     </webflow:flow-registry>
     
     <mvc:resources location="/, classpath:/META-INF/web-resources/" mapping="/resources/**"/>
-    <!-- 
-    <webflow:flow-builder-services id="flowBuilderServices" view-factory-creator="mvcViewFactoryCreator"/>
+    
+    <webflow:flow-builder-services id="flowBuilderServices"
+    conversion-service="defaultConversionService" development="true"/>
+    
+    <bean id="defaultConversionService" class="org.springframework.binding.convert.service.DefaultConversionService">
+       <constructor-arg ref="mvcConversionService"/>
+    </bean>
+    
     
     <bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
         <property name="flowViewResolver" ref="flowResourceFlowViewResolver"/>
@@ -25,6 +31,6 @@
     <bean id="flowResourceFlowViewResolver" class="org.springframework.webflow.mvc.builder.FlowResourceFlowViewResolver">
         <property name="defaultViewSuffix" value=".jsp"/>
     </bean>
-     
+      <!--
     <bean id="flowRegistryClassPathPostProcessor" class="com.xinglongjian.config.FlowRegistryClassPathPostProcessor" />-->
 </beans>

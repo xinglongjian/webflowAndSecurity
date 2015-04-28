@@ -45,30 +45,39 @@ public class OrderTwoController {
 	    lists.add(cate4);
 	    return lists; 
 	} 
-	public Map<Long, String> initializeSelectableBooks(OrderFormTwo orderForm) { 
+	public List<Book> initializeSelectableBooks(OrderFormTwo orderForm) { 
 	    orderForm.getSelectBookes().clear();
 	    orderForm.getSelectBookes(); 
 	 
-	    Map<Long, String> selectableBooks = new HashMap<Long, String>(); 
-//	    for (Book book : bookstoreService.findBooksByCategory(categoryService.findById 
-//	(orderForm.getCategoryId()))) { 
-//	        selectableBooks.put(book.getId(), book.getTitle()); 
-//	    } 
-	    selectableBooks.put(20000l, "\u4e00\u5343\u96f6\u4e00\u591c");
-	    selectableBooks.put(20001l, "\u5341\u4e07\u4e2a\u4e3a\u4ec0\u4e48");
-	    selectableBooks.put(20002l, "\u611a\u516c\u79fb\u5c71");
-	    selectableBooks.put(20003l, "\u534a\u591c\u5077\u9e21");
+	    List<Book> selectableBooks = new ArrayList<Book>();
+	    Book book1=new Book();
+	    book1.setId(20000l);
+	    book1.setTitle("\u4e00\u5343\u96f6\u4e00\u591c");
+	    Book book2=new Book();
+	    book2.setId(20001l);
+	    book2.setTitle("\u5341\u4e07\u4e2a\u4e3a\u4ec0\u4e48");
+	    Book book3=new Book();
+	    book3.setId(20002l);
+	    book3.setTitle("\u611a\u516c\u79fb\u5c71");
+	    Book book4=new Book();
+	    book4.setId(20003l);
+	    book4.setTitle("\u534a\u591c\u5077\u9e21");
+	    
+	    selectableBooks.add(book1);
+	    selectableBooks.add(book2);
+	    selectableBooks.add(book3);
+	    selectableBooks.add(book4);
 	    return selectableBooks; 
 	} 
 	
 	public void addBooks(OrderFormTwo orderForm) {
 		 Book book = new Book();
-		 book.setId(orderForm.getBookId());
-		 if (orderForm.getSelectBookes().containsKey(book)) {
-		 orderForm.getSelectBookes().put(book,orderForm.getSelectBookes().get(book) + orderForm.getQuantity());
-		 } else {
-		 orderForm.getSelectBookes().put(book,orderForm.getQuantity());
-		 }
+//		 book.setId(orderForm.getBookId());
+//		 if (orderForm.getSelectBookes().containsKey(book)) {
+//		 orderForm.getSelectBookes().put(book,orderForm.getSelectBookes().get(book) + orderForm.getQuantity());
+//		 } else {
+//		 orderForm.getSelectBookes().put(book,orderForm.getQuantity());
+//		 }
     }
 	
 	public void placeOrder(final OrderFormTwo orderForm)
