@@ -49,6 +49,7 @@ public class StringToEntityConverter implements GenericConverter {
 				return null;
 			}
 			Long id=Long.parseLong((String)source);	
+			
 			return this.em.find(this.clazz, id);
 		}
 		else if(this.clazz.equals(sourceType.getType()))

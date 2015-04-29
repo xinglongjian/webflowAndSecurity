@@ -2,21 +2,26 @@ package com.xinglongjian.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.xinglongjian.domain.Account;
 import com.xinglongjian.domain.Book;
 import com.xinglongjian.domain.Category;
-import com.xinglongjian.domain.OrderForm;
 import com.xinglongjian.domain.OrderFormTwo;
+import com.xinglongjian.repository.BookRepository;
+import com.xinglongjian.repository.CategoryRepository;
 
 @Controller
 public class OrderTwoController {
 	
+	
+	@Autowired
+	private CategoryRepository categoryRepository;
+	@Autowired
+	private BookRepository bookRepository;
+	 
 	public OrderFormTwo initializeForm()
 	{
 		OrderFormTwo of=new OrderFormTwo();
