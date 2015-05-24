@@ -13,4 +13,16 @@ public class MainController {
 	{
 		return "index";
 	}
+	
+	@RequestMapping("/")
+	public String main(Map<String, Object> model)
+	{
+		return "main";
+	}
+	
+	@RequestMapping("/tologin")
+	public String login(Map<String, Object> model)
+	{
+		return "login";
+	}
 }

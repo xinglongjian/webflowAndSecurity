@@ -10,15 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Hello ${httpServletRequest.remoteUser}</h1>
-<form action="/logout" method="post">
- <input type="submit" value="Sign Out"/>
-</form>
-
-<spring:url value="/createOrders" var="createOrder"/>
-<spring:url value="/createOrdersTwo" var="createOrderTwo"/>
-<a href="${createOrder }">buy books</a>
-&nbsp;
-<a href="${createOrderTwo }">buy books-Two</a>
+<a href="/index">TO INdex</a>
 </body>
 </html>
